@@ -13,8 +13,10 @@ export default class App extends React.Component {
 
     this.addFish = this.addFish.bind(this);
     this.updateFish = this.updateFish.bind(this);
+    this.removeFish = this.removeFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
+
     // initial state
     this.state = {
       fishes: {},
@@ -67,6 +69,12 @@ export default class App extends React.Component {
     this.setState({ fishes });
   }
 
+  removeFish(key) {
+    const fishes = {...this.state.fishes};
+    fishes[key] = null;
+    this.setState({ fishes })
+  }
+
   loadSamples () {
     this.setState({
       fishes : sampleFishes
@@ -103,7 +111,8 @@ export default class App extends React.Component {
             addFish={this.addFish}
             loadSamples={this.loadSamples}
             fishes={this.state.fishes}
-            updateFish={this.updateFish} />
+            updateFish={this.updateFish}
+            removeFish={this.removeFish} />
       </div>
     )
   }
