@@ -120,7 +120,8 @@ export default class App extends React.Component {
             loadSamples={this.loadSamples}
             fishes={this.state.fishes}
             updateFish={this.updateFish}
-            removeFish={this.removeFish} />
+            removeFish={this.removeFish}
+            storeId={this.props.params.storeId} />
       </div>
     )
   }
